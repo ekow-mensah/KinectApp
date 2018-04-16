@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -12,6 +13,7 @@ import com.github.sarxos.webcam.WebcamPanel;
 import com.github.sarxos.webcam.WebcamResolution;
 
 import edu.ufl.digitalworlds.j4k.J4KSDK;
+
 
 
 @SuppressWarnings("serial")
@@ -26,7 +28,8 @@ public class TheApp extends JFrame {
 	private JLabel lblKinectStream;
 	private JLabel lblDataPanel;
 	JLabel accelerometer;
-
+	ArrayList<MyTableData> tableData;
+	
 	public TheApp() {
 
 		setTitle("Main App");
@@ -71,7 +74,7 @@ public class TheApp extends JFrame {
 		viewer.setShowVideo(false);
 		myKinect = new Kinect();
 		accelerometer=new JLabel("0,0,0");
-		myKinect.start(Kinect.DEPTH| Kinect.COLOR |Kinect.SKELETON |Kinect.XYZ|Kinect.PLAYER_INDEX);
+		myKinect.start(J4KSDK.DEPTH|J4KSDK.SKELETON |J4KSDK.COLOR |J4KSDK.XYZ|J4KSDK.PLAYER_INDEX);
 		myKinect.computeUV(true);
 		myKinect.setNearMode(false);
 		myKinect.setSeatedSkeletonTracking(true);
@@ -79,6 +82,8 @@ public class TheApp extends JFrame {
 		myKinect.setDepthResolution(640, 480);
 		myKinect.setViewer(viewer);
 		myKinect.setLabel(accelerometer);
+		
+		
 
 		GridBagConstraints gbc_kinectpanel = new GridBagConstraints();
 		gbc_kinectpanel.fill = GridBagConstraints.BOTH;
@@ -102,6 +107,7 @@ public class TheApp extends JFrame {
 		gbc_dataPanel.gridx = 1;
 		gbc_dataPanel.gridy = 4;
 		getContentPane().add(dataPanel, gbc_dataPanel);
+		
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -109,15 +115,26 @@ public class TheApp extends JFrame {
 		menuBar.add(fileMenu);
 
 		setVisible(true);
+		
+		tableData = getKinect().getTableData();
+		//System.out.println(tableData.get(0));
+		for (int i = 0 ; i < tableData.size(); i++) {
+			System.out.println(tableData.get(i));
+		}
 
+	}
+	
+	public Kinect getKinect() {
+		return myKinect;
 	}
 
 	public static void main(String[] args) {
-
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new TheApp();
 			}
 		});
+		
+	
 	}
 }
