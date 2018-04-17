@@ -48,13 +48,11 @@ public class Kinect extends J4KSDK {
 	ViewerPanel3D viewer = null;
 	JLabel label = null;
 	boolean mask_players = false;
-	private ArrayList<MyTableData> tableData = new ArrayList<>();
+	private TableModel tm = new TableModel();
 
 	public void maskPlayers(boolean flag) {
 		mask_players = flag;
 	}
-
-	
 
 	public Kinect() {
 		super();
@@ -108,9 +106,8 @@ public class Kinect extends J4KSDK {
 
 		for (int i = 0; i < getSkeletonCountLimit(); i++) {
 			viewer.skeletons[i] = Skeleton.getSkeleton(i, flags, positions, orientations, state, this);
-			
-			/*
-			if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
+
+			/*if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT) != 0
@@ -124,15 +121,21 @@ public class Kinect extends J4KSDK {
 						viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT));
 				System.out.printf("Shoulder Left Y Position: %f\n",
 						viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT));
-			}
-			*/
 
+				// Add data to the TableModel instead
+
+			}*/
 			
-			  tableData.add(new MyTableData("Elbow Left", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT), viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT)));
-			  tableData.add(new MyTableData("Wrist Left", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT), viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT)));
-			  tableData.add(new MyTableData("Shoulder Left", viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT), viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT)));
-			  
-			  //System.out.println("working");
+			if (viewer.skeletons[i].get3DJoint(Skeleton.ELBOW_LEFT) != null) {
+				tm.addData(new MyTableData("Elbow Left", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT),
+						viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT)));
+				tm.addData(new MyTableData("Wrist Left", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT),
+						viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT)));
+				tm.addData(new MyTableData("Shoulder Left", viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT),
+						viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT)));
+			}
+			
+
 		}
 
 	}
@@ -171,8 +174,8 @@ public class Kinect extends J4KSDK {
 		viewer.videoTexture.update(getInfraredWidth(), getInfraredHeight(), bgra);
 	}
 
-	public ArrayList<MyTableData> getTableData() {
-		return this.tableData;
+	public TableModel getTableModel() {
+		return tm;
 	}
 
 }

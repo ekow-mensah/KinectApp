@@ -1,6 +1,8 @@
 package kinect.app;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -14,11 +16,9 @@ import com.github.sarxos.webcam.WebcamResolution;
 
 import edu.ufl.digitalworlds.j4k.J4KSDK;
 
-
-
 @SuppressWarnings("serial")
 public class TheApp extends JFrame {
-	//VideoPanel viewer;
+	// VideoPanel viewer;
 	ViewerPanel3D viewer;
 	Kinect myKinect;
 	private JMenuBar menuBar;
@@ -27,9 +27,11 @@ public class TheApp extends JFrame {
 	private JLabel lblWebcamStream;
 	private JLabel lblKinectStream;
 	private JLabel lblDataPanel;
+	private JTable table;
+
 	JLabel accelerometer;
 	ArrayList<MyTableData> tableData;
-	
+
 	public TheApp() {
 
 		setTitle("Main App");
@@ -37,9 +39,9 @@ public class TheApp extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 38, 313, 39, 299, 0 };
-		gridBagLayout.rowHeights = new int[]{0, 264, 60, 0, 264, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowHeights = new int[] { 0, 264, 60, 0, 264, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 
 		lblWebcamStream = new JLabel("Webcam Stream");
@@ -51,7 +53,7 @@ public class TheApp extends JFrame {
 
 		lblKinectStream = new JLabel("Kinect Stream");
 		GridBagConstraints gbc_lblKinectStream = new GridBagConstraints();
-		gbc_lblKinectStream.insets = new Insets(0, 0, 5, 0);
+		gbc_lblKinectStream.insets = new Insets(0, 0, 5, 5);
 		gbc_lblKinectStream.gridx = 3;
 		gbc_lblKinectStream.gridy = 0;
 		getContentPane().add(lblKinectStream, gbc_lblKinectStream);
@@ -73,8 +75,8 @@ public class TheApp extends JFrame {
 		viewer = new ViewerPanel3D();
 		viewer.setShowVideo(false);
 		myKinect = new Kinect();
-		accelerometer=new JLabel("0,0,0");
-		myKinect.start(J4KSDK.DEPTH|J4KSDK.SKELETON |J4KSDK.COLOR |J4KSDK.XYZ|J4KSDK.PLAYER_INDEX);
+		accelerometer = new JLabel("0,0,0");
+		myKinect.start(J4KSDK.DEPTH | J4KSDK.SKELETON | J4KSDK.COLOR | J4KSDK.XYZ | J4KSDK.PLAYER_INDEX);
 		myKinect.computeUV(true);
 		myKinect.setNearMode(false);
 		myKinect.setSeatedSkeletonTracking(true);
@@ -82,12 +84,10 @@ public class TheApp extends JFrame {
 		myKinect.setDepthResolution(640, 480);
 		myKinect.setViewer(viewer);
 		myKinect.setLabel(accelerometer);
-		
-		
 
 		GridBagConstraints gbc_kinectpanel = new GridBagConstraints();
 		gbc_kinectpanel.fill = GridBagConstraints.BOTH;
-		gbc_kinectpanel.insets = new Insets(0, 0, 0, 5);
+		gbc_kinectpanel.insets = new Insets(0, 0, 5, 5);
 		gbc_kinectpanel.gridx = 3;
 		gbc_kinectpanel.gridy = 1;
 		getContentPane().add(viewer, gbc_kinectpanel);
@@ -103,38 +103,59 @@ public class TheApp extends JFrame {
 		dataPanel.setBackground(Color.DARK_GRAY);
 		GridBagConstraints gbc_dataPanel = new GridBagConstraints();
 		gbc_dataPanel.fill = GridBagConstraints.BOTH;
-		gbc_dataPanel.insets = new Insets(0, 0, 5, 5);
+		gbc_dataPanel.insets = new Insets(0, 0, 20, 5);
 		gbc_dataPanel.gridx = 1;
 		gbc_dataPanel.gridy = 4;
+		gbc_dataPanel.anchor = GridBagConstraints.SOUTH;
 		getContentPane().add(dataPanel, gbc_dataPanel);
-		
+
+		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		table.setModel(myKinect.getTableModel());
+		dataPanel.setLayout(new BorderLayout());
+		dataPanel.add(table, BorderLayout.CENTER);
+		dataPanel.add(table.getTableHeader(), BorderLayout.NORTH);
+		dataPanel.add(new JScrollPane(table));
 
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		fileMenu = new JMenu("File");
 		menuBar.add(fileMenu);
 
+		pack();
 		setVisible(true);
-		
-		tableData = getKinect().getTableData();
-		//System.out.println(tableData.get(0));
-		for (int i = 0 ; i < tableData.size(); i++) {
-			System.out.println(tableData.get(i));
-		}
 
 	}
-	
+
 	public Kinect getKinect() {
 		return myKinect;
 	}
 
 	public static void main(String[] args) {
+
+		// JProgressBar loadingBar;
+		// JFrame progressFrame = new JFrame();
+		// //JPanel progressPanel = new JPanel();
+		// progressFrame.setSize(500, 100);
+		// loadingBar = new JProgressBar(0, 100);
+		// loadingBar.setValue(0);
+		// loadingBar.setStringPainted(true);
+		// loadingBar.setString("Setting Up GUI");
+		// loadingBar.setValue(20);
+		// loadingBar.setString("Initialising WebCam");
+		// loadingBar.setValue(60);
+		// loadingBar.setString("Initialising Kinect");
+		// loadingBar.setValue(80);
+		// loadingBar.setString("Completing GUI");
+		// loadingBar.setValue(100);
+		// loadingBar.setString("Setup Complete");
+		// progressFrame.add(loadingBar, BorderLayout.CENTER);
+		// progressFrame.setVisible(true);
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new TheApp();
 			}
 		});
-		
-	
 	}
 }
