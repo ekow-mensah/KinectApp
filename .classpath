@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="D:/Project/webcam-capture-0.3.10.jar"/>
 	<classpathentry kind="lib" path="D:/Project/libs/bridj-0.6.2.jar"/>
 	<classpathentry kind="lib" path="D:/Project/libs/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/Project/sqlite-jdbc-3.8.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

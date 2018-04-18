@@ -17,7 +17,16 @@ public class TableModel extends AbstractTableModel {
 	public void addData(MyTableData tableData) {
 		td.add(tableData);
 		fireTableRowsInserted(td.size() - 1, td.size() - 1);
-
+	}
+	
+	public void deleteData() {
+		int rows = getRowCount();
+		
+		if (rows == 0) {
+			return;
+		}
+		
+		td.clear();
 	}
 
 	@Override
@@ -50,6 +59,10 @@ public class TableModel extends AbstractTableModel {
 			value = tableData.getYPos();
 		}
 		return value;
+	}
+	
+	public ArrayList<MyTableData> getTableData() {
+		return td;
 	}
 
 }

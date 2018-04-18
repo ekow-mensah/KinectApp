@@ -1,5 +1,6 @@
 package kinect.app;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -107,35 +108,62 @@ public class Kinect extends J4KSDK {
 		for (int i = 0; i < getSkeletonCountLimit(); i++) {
 			viewer.skeletons[i] = Skeleton.getSkeleton(i, flags, positions, orientations, state, this);
 
-			/*if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
+			// DecimalFormat df = new DecimalFormat("#.###");
+
+			if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT) != 0
-					&& viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT) != 0) {
-				System.out.printf("Elbow Left X Position: %f\n", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT));
-				System.out.printf("Elbow Left Y Position: %f\n", viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT));
-				System.out.printf("Wrist Left X Position: %f\n", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT));
-				System.out.printf("Wrist Left Y position: %f\n", viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT));
-				System.out.printf("Shoulder Left X Position: %f\n",
-						viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT));
-				System.out.printf("Shoulder Left Y Position: %f\n",
-						viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT));
+					&& viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT) != 0
+					&& viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_RIGHT) != 0
+					&& viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_RIGHT) != 0
+					&& viewer.skeletons[i].get3DJointX(Skeleton.WRIST_RIGHT) != 0
+					&& viewer.skeletons[i].get3DJointY(Skeleton.WRIST_RIGHT) != 0
+					&& viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_RIGHT) != 0
+					&& viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_RIGHT) != 0) {
 
-				// Add data to the TableModel instead
+				int value = TheApp.getComboSelectedValue();
 
-			}*/
-			
-			if (viewer.skeletons[i].get3DJoint(Skeleton.ELBOW_LEFT) != null) {
-				tm.addData(new MyTableData("Elbow Left", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT),
-						viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT)));
-				tm.addData(new MyTableData("Wrist Left", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT),
-						viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT)));
-				tm.addData(new MyTableData("Shoulder Left", viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT),
-						viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT)));
+				switch (value) {
+				case 0:
+					tm.addData(new MyTableData("Elbow Left", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT),
+							viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT)));
+					tm.addData(new MyTableData("Wrist Left", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT),
+							viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT)));
+					tm.addData(new MyTableData("Shoulder Left", viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT),
+							viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT)));
+
+					break;
+
+				case 1:
+
+					tm.addData(new MyTableData("Elbow Right", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_RIGHT),
+							viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT)));
+					tm.addData(new MyTableData("Wrist Right", viewer.skeletons[i].get3DJointX(Skeleton.WRIST_RIGHT),
+							viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT)));
+					tm.addData(
+							new MyTableData("Shoulder Right", viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_RIGHT),
+									viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT)));
+
+					break;
+				}
+				/*
+				 * System.out.printf("Elbow Left X Position: %f\n",
+				 * viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT));
+				 * System.out.printf("Elbow Left Y Position: %f\n",
+				 * viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT));
+				 * System.out.printf("Wrist Left X Position: %f\n",
+				 * viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT));
+				 * System.out.printf("Wrist Left Y position: %f\n",
+				 * viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT));
+				 * System.out.printf("Shoulder Left X Position: %f\n",
+				 * viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT));
+				 * System.out.printf("Shoulder Left Y Position: %f\n",
+				 * viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT));
+				 */
+
 			}
-			
-
 		}
 
 	}
