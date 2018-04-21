@@ -101,19 +101,24 @@ public class KinectApp extends JFrame {
 		gbc_webcampanel.gridy = 1;
 		getContentPane().add(webcamPanel, gbc_webcampanel);
 
+		
+		myKinect = new Kinect();
+		
+		if (!myKinect.start(J4KSDK.DEPTH | J4KSDK.SKELETON | J4KSDK.COLOR | J4KSDK.XYZ | J4KSDK.PLAYER_INDEX)) {
+			System.out.println("hello");
+		}
+		accelerometer = new JLabel("0,0,0");
+		
 		viewer = new ViewerPanel3D();
 		viewer.setShowVideo(false);
-		myKinect = new Kinect();
-		accelerometer = new JLabel("0,0,0");
-		myKinect.start(J4KSDK.DEPTH | J4KSDK.SKELETON | J4KSDK.COLOR | J4KSDK.XYZ | J4KSDK.PLAYER_INDEX);
+		myKinect.setViewer(viewer);
+		myKinect.setLabel(accelerometer);
 		myKinect.computeUV(true);
 		myKinect.setNearMode(false);
 		myKinect.setSeatedSkeletonTracking(true);
 		myKinect.setColorResolution(640, 480);
 		myKinect.setDepthResolution(640, 480);
-		myKinect.setViewer(viewer);
-		myKinect.setLabel(accelerometer);
-
+		
 		GridBagConstraints gbc_kinectpanel = new GridBagConstraints();
 		gbc_kinectpanel.fill = GridBagConstraints.BOTH;
 		gbc_kinectpanel.insets = new Insets(0, 0, 5, 30);

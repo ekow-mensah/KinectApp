@@ -1,6 +1,8 @@
 package kinect.app;
 
+
 import javax.swing.JLabel;
+
 
 import edu.ufl.digitalworlds.j4k.DepthMap;
 import edu.ufl.digitalworlds.j4k.J4KSDK;
@@ -113,9 +115,10 @@ public class Kinect extends J4KSDK {
 		//each skeleton frame, the ViewerPanel3D object 
 		//is updated with the position and orientation of 
 		//the skeleton from the received skeleton frame.  
-		if (viewer == null || viewer.skeletons == null)
+		if (viewer == null || viewer.skeletons == null) 
 			return;
-
+			
+		System.out.println("like a somboooody");
 		for (int i = 0; i < getSkeletonCountLimit(); i++) {
 			viewer.skeletons[i] = Skeleton.getSkeleton(i, flags, positions, orientations, state, this);
 
@@ -184,8 +187,8 @@ public class Kinect extends J4KSDK {
 		// checks to see if video texture exists or use_infrared is set to false
 		// if condition is satisfied, return to method body of calling method
 		// otherwise the ViewerPanel3D is updated with the new video texture.
-		if (viewer == null || viewer.videoTexture == null || use_infrared)
-			return;
+		if (viewer == null || viewer.videoTexture == null || use_infrared) 
+			 return;
 		viewer.videoTexture.update(getColorWidth(), getColorHeight(), data);
 	}
 
