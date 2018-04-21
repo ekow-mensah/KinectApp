@@ -169,10 +169,28 @@
 @Electronic{Oracle2017,
   author  = {Oracle},
   year    = {2017},
-  title   = {What is Open N?},
+  title   = {How to Use GridbagLayout},
   note    = {[Online]},
   url     = {https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html},
   urldate = {2018-04-18},
+}
+
+@Book{,
+  title     = {Introduction to Software Testing},
+  publisher = {Cambridge University Press},
+  year      = {2017},
+  author    = {Ammann, P and Offutt, J},
+  url       = {https://books.google.co.uk/books?hl=en&lr=&id=58LeDQAAQBAJ&oi=fnd&pg=PR10&dq=what+is+software+testing&ots=Vze-NOUP1W&sig=fmsH6EmgZbPtzph97wlo9ApYyrs#v=onepage&q=what%20is%20software%20testing&f=false},
+}
+
+@Book{,
+  title     = {HandBook of Usability Testing. How to Plan, Design and Conduct Effective Tests.},
+  publisher = {Wiley Publishing Inc.},
+  year      = {2008},
+  author    = {Rubin, J and Chisnell, D.},
+  editor    = {Elliott, B and Spears, M and James, J and Charbonneau, E.},
+  edition   = {2},
+  note      = {P},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

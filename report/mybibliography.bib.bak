@@ -167,12 +167,23 @@
 }
 
 @Electronic{Oracle2017,
-  author  = {Open},
-  year    = {2018},
-  title   = {What is Open NI?},
+  author  = {Oracle},
+  year    = {2017},
+  title   = {How to Use GridbagLayout},
   note    = {[Online]},
-  url     = {http://www.openni.ru/resources/index.html},
+  url     = {https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html},
   urldate = {2018-04-18},
+}
+
+@Book{,
+  title     = {Introduction to Software Testing},
+  publisher = {Cambridge University Press},
+  year      = {2017},
+  author    = {Ammann, P and Offutt, J},
+  url       = {https://books.google.co.uk/books?hl=en&lr=&id=58LeDQAAQBAJ&oi=fnd&pg=PR10&dq=what+is+software+testing&ots=Vze-NOUP1W&sig=fmsH6EmgZbPtzph97wlo9ApYyrs#v=onepage&q=what%20is%20software%20testing&f=false},
+}
+
+@Book{,
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -10,8 +10,8 @@
 \contentsline {subsection}{\numberline {2.1}Basic Requirement Identification}{8}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Application Requirements}{9}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Use Case Descriptions}{10}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4} Data Gathering}{20}{subsection.2.4}
-\contentsline {section}{\numberline {3}System Design}{21}{section.3}
+\contentsline {subsection}{\numberline {2.4}Data Gathering}{20}{subsection.2.4}
+\contentsline {section}{\numberline {3}Application Design}{21}{section.3}
 \contentsline {subsection}{\numberline {3.1}Choice of Development Methodology}{21}{subsection.3.1}
 \contentsline {subsection}{\numberline {3.2}Choice of Development Language}{22}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Choice of Development Library for Kinect}{22}{subsection.3.3}
@@ -32,4 +32,9 @@
 \contentsline {subsubsection}{\numberline {4.2.3}MyTableData class}{40}{subsubsection.4.2.3}
 \contentsline {subsubsection}{\numberline {4.2.4}Implementation of Button Events}{41}{subsubsection.4.2.4}
 \contentsline {subsection}{\numberline {4.3}Implementation of third prototype}{42}{subsection.4.3}
-\contentsline {section}{\numberline {5}Testing}{44}{section.5}
+\contentsline {section}{\numberline {5}Testing of Application}{44}{section.5}
+\contentsline {subsection}{\numberline {5.1}Testing the first prototype}{44}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Testing the second prototype}{45}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Testing the third prototype}{48}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Test Results}{49}{subsection.5.4}
+\contentsline {section}{\numberline {6}Evaluation}{50}{section.6}

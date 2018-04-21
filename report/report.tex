@@ -5,6 +5,7 @@
 \usepackage[english]{babel}
 \usepackage{fancyhdr}
 \usepackage{setspace}
+\usepackage{longtable}
 \usepackage{parskip}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xfrac}
@@ -104,7 +105,7 @@ How the data was represented was left to be determined by the developer to decid
 
 
 \subsection{Application Requirements}
-Application requirements can be broken down into two categories. These are function requirements and non-functional requirements. Function requirements are the necessary tasks or processes that must be completed therefore, functional requirements are defined in terms of what needs to be carried out \citep{Defence2001}. Non functional requirements serve as constraints on the services of function that the system provides. These include factors such as reliability, portability, ease of use etc. Eide (2005) explains constraints as restrictions on the software engineering process or factors which affect the processes of the life cycle. Disregarded constraints may have negative implications on the developed system. The functional requirements for this prototype was to display movement data of the upper limbs as stated above. The functional and non-functional requirements for the application prototype stated below. 
+Application requirements can be broken down into two categories. These are function requirements and non-functional requirements. Function requirements are the necessary tasks or processes that must be completed therefore, functional requirements are defined in terms of what needs to be carried out \citep{Defence2001}. Non functional requirements serve as constraints on the services of function that the system provides. These include factors such as reliability, portability, ease of use etc. Eide (2005) explains constraints as restrictions on the software engineering process or factors which affect the processes of the life cycle. Disregarded constraints may have negative implications on the developed system. The functional and non-functional requirements for the application prototype stated in tables one and two. 
 
 \begin{table}[!htb]
  \centering
@@ -155,6 +156,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Starting the application}
+	\addrow{ID}{1}
 	\addrow{Actor}{End User}
 	\addrow{Description}{This describes the necessary steps needed to start the application}
 	\addrow{Pre-Condition}{The Application must be installed on the user's computer.}
@@ -172,6 +174,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Obtaining video footage from WebCam}
+	\addrow{ID}{2}
 	\addrow{Actor}{Application}
 	\addrow{Description}{This describes how video footage is obtained from the web camera}
 	\addrow{Pre-Condition}{Computer must be connected to a web camera}
@@ -192,6 +195,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Obtaining video footage from Kinect sensor}
+	\addrow{ID}{3}
 	\addrow{Actor}{Application}
 	\addrow{Description}{This describes how video footage is obtained from the Kinect sensor}
 	\addrow{Pre-Condition}{Kinect sensor must be connected to the computer}
@@ -213,6 +217,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Displaying coordinate positions of limbs in table}
+	\addrow{ID}{4}
 	\addrow{Actor}{User and Application}
 	\addrow{Description}{This describes how the coordinate positions (x and y) values are obtained using the Kinect sensor and displayed in a table.}
 	\addrow{Pre-Condition}{Kinect sensor must be connected to the computer}
@@ -235,6 +240,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Start recording data from Kinect sensor}
+	\addrow{ID}{5}
 	\addrow{Actor}{End User}
 	\addrow{Description}{This describes the necessary steps to start obtaining data from Kinect sensor}
 	\addrow{Pre-Condition}{The Kinect Sensor must be plugged in.}
@@ -254,6 +260,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Stop Recording Data from Kinect Sensor}
+	\addrow{ID}{6}
 	\addrow{Actor}{End User}
 	\addrow{Description}{This describes how video data being recorded is stopped.}
 	\addrow{Pre-Condition}{The Application must be recording live data (video and text).}
@@ -271,6 +278,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Save recorded data from Kinect sensor as text }
+	\addrow{ID}{7}
 	\addrow{Actor}{End User}
 	\addrow{Description}{Describes how data obtained from Kinect sensor is saved as text.}
 	\addrow{Pre-Condition}{The Application must be recording or have recorded live data.}
@@ -289,11 +297,12 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Save recorded data from Kinect sensor in video format }
+	\addrow{ID}{8}
 	\addrow{Actor}{End User}
 	\addrow{Description}{Describes how data obtained from Kinect sensor is saved in video format.}
 	\addrow{Pre-Condition}{The Application must be recording or have recorded live data.}
 	\addmulrow{Successful Completion}{
-		\item User clicks on the save button displayed on the control panel. 
+		\item User selects "File" and then "Save as" from external panel. 
 		\item A dialog box displays on screen with a file chooser. 
 		\item User selects the path to where the data is to be saved.
 		\item The data is saved at location specified by the user as a video.}
@@ -305,7 +314,8 @@ The Use case descriptions for the first prototype can be seen below:
 \end{usecase}
 
 \begin{usecase}
-	\addheading{Name of Use Case}{Load recorded data by Kinect sensor as text }
+	\addheading{Name of Use Case}{Load recorded movement data by Kinect sensor as text }
+	\addrow{ID}{9}
 	\addrow{Actor}{End User}
 	\addrow{Description}{Describes how coordinate data stored as text is loaded into a table.}
 	\addrow{Pre-Condition}{The saved file must exist and should contain coordinate data .}
@@ -326,6 +336,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Comparing old saved data with live data}
+	\addrow{ID}{10}
 	\addrow{Actor}{End User}
 	\addrow{Description}{This describes how the old data can be compared with live data by displaying both old and live data simultaneously.}
 	\addmulrow{Pre-Condition}{
@@ -350,6 +361,7 @@ The Use case descriptions for the first prototype can be seen below:
 
 \begin{usecase}
 	\addheading{Name of Use Case}{Quitting the application}
+	\addrow{ID}{11}
 	\addrow{Actor}{End User}
 	\addrow{Description}{This describes the necessary steps needed to close the application}
 	\addrow{Pre-Condition}{The Application must be running}
@@ -369,11 +381,11 @@ The Use case descriptions for the first prototype can be seen below:
 
 
 
-\subsection{ Data Gathering}
+\subsection{Data Gathering}
 After the requirements were defined, the next step was to gather data pertaining to the motion of the upper limbs. This data was gathered using the Kinect sensor. The Kinect sensor was connected to a dedicated computer and the Kinect development toolkit was used to test whether the Kinect sensor was functioning properly. A simple Java program was written using the J4K library to extract the skeletal coordinates (X and Y positions) of the upper limbs for simple actions such as lifting the arm to a certain height and waving the arm. 
 
 
-\section{System Design} 
+\section{Application Design} 
 
 This section discusses the design of the first, second and third prototypes including any design decisions that were made during the design process. 
 
@@ -654,7 +666,7 @@ The layout manager that was used to ensure that the graphical user interface was
 \begin{figure}[!htb]
 	\begin{center}
   \includegraphics[scale=0.7]{codesnippet1.png}
-  	\caption{code showing how WebCam Panel was created.}
+  	\caption{Creating WebCam Panel.}
   \end{center} 
   \label{fig: codesnippet2} 
 \end{figure}
@@ -676,14 +688,14 @@ After the buttons were added to the control panels the final step was to create 
 \begin{figure}[!htb]
 	\begin{center}
   \includegraphics[scale=0.7]{codesnippet4.png}
-  	\caption{Code snippet showing table creation.}
+  	\caption{ Table generation.}
   \end{center} 
   \label{fig: codesnippet4} 
 \end{figure}
 
 \subsection{Implementation of second prototype}
 
-As stated in the design section, the second prototype was an improvement of the first prototype and included the implementation of classes and events. At this stage, the first step was to create the 4 classes described in the class diagram and in the tables in section 3.5. Code snippets are shown for the main methods of the class (for more program code pertaining to class implementation see appendix).
+As stated in the design section, the second prototype was an improvement of the first prototype and included the implementation of classes and events. At this stage, the first step was to create the 4 classes described in the class diagram and in the tables in section 3.5. Code snippets are shown for the main methods of each class (for more program code pertaining to implementation see appendix).
 
 \subsubsection{The Kinect Class}
 
@@ -785,13 +797,11 @@ The purpose of the MyTableData class was to be able to provide a custom data typ
 \end{figure}
 
 
-
-
 After this the next step was to implement the mouse click events for the start, pause and stop methods. This was done by first adding a MouseListener and overriding the mouseClicked method. 
 
 \subsubsection{Implementation of Button Events}
 
-The start button was implemented such that, it called an external program Kinect Studio which was installed on the $C:$ drive of the computer. This Kinect Studio application was used to record and save movement data in video formats. The Kinect Studio application searches for a running application using the Kinect sensor and then connects to that application thus, it provided the ability to save, load and playback recorded videos in the ViewerPanel3D of the KinectApp class. The figure below shows the implementation of the start button. 
+The start button was implemented such that, it called an external program Kinect Studio which was installed on the $C:$ drive of the computer. This Kinect Studio application was used to record the video footage and playback the recorded footage. The Kinect Studio application searches for a running application using the Kinect sensor and then connects to that application. 
 
 \begin{figure}[!htb]
 	\begin{center}
@@ -823,9 +833,9 @@ For implementation of the ViewerPanel3D class see appendix.
 
 \subsection{Implementation of third prototype}
 
-After a requirements evaluation, it was raised that there should be functionality to save and load movement data as text. This functionality was added in the third prototype along with replacing the log panel with a table showing old data loaded from a csv file  (see figure 8 for table creation code).
+After a requirements evaluation, it was raised that there should be functionality to save and load movement data as text and video. This functionality was added in the third prototype along with replacing the log panel with a table showing old data loaded from a csv file  (see figure 8 for table creation code).
 
-The load button was implemented based on the use case describing how movement data is loaded as text into a table (secton 2.3 use case 8). The implementation of the load function is shown below. 
+The load button was implemented based on the use case describing how movement data is loaded as text into a table (secton 2.3 use case 8). The implementation of the load function is shown in figure 20. 
 
 \begin{figure}[!htb]
 	\begin{center}
@@ -845,14 +855,325 @@ A data model is created for the table and the old movement data is loaded using 
   \label{fig: codesnippet16} 
 \end{figure}
 
-Similarly the save button was implemented based on the use case describing how movement data is saved as text (section 2.3 use case 7). The code snippet above shows how this was implemented. A PrintWriter object is used to write the data to the file. The ArrayList holding the table data is iterated over and the data is converted to a string format using the toString() method. 
+Similarly the save button was implemented based on the use case describing how movement data is saved as text (section 2.3 use case 7). Figure 21 above shows how this was implemented. A PrintWriter object is used to write the data to the file. The ArrayList holding the table data is iterated over and the data is converted to a string format using the toString() method.
 
-\section{Testing}
+The Kinect studio application was used to save and load data recorded in video format. As explained earlier, the Kinect studio application connects to an application instance using the Kinect sensor. This
+made it possible to save, load and playback recorded videos in the ViewerPanel3D of the KinectApp class.   
+
+\section{Testing of Application}
+
+The purpose of application testing is to confirm whether the developed application meets the requirements defined at the requirements stage and to ensure that the software satisfies the reasons for its intended use (Ammann and Offutt , 2017). This section is broken down into three sub-sections which explain how the three prototypes were tested and what type of testing was done. 
+
+\subsection{Testing the first prototype}
+
+The type of testing that was done for the first prototype was usability testing. The reason for using usability testing was because the first prototype was only a graphical user interface, thus usability testing was done to assess the usefulness of the user interface. 
+
+\newpage
+The graphical user interface was tested against five main criteria as suggested by (Rubin and Chisnell , 2008).
 
 
+\begin{table}[!htb]
+ \centering
+ \textbf{\caption{Explanation of usability testing criteria}}
+ \begin{tabular}{|c|c|}
+ \hline
+  Criteria & Explanation \\
+  \hline
+   Accessibility & Does the application consider individuals with disabilities?  \\
+  \hline 
+   Efficiency & How quick does the application allow users to accomplish goals?  \\
+  \hline
+   Effectiveness & Does the application function according to the expectations of the user?  \\
+  \hline
+   Learnability & Does the user use the application with ease over a short period of time?  \\
+  \hline
+   Usefulness & To what degree does the application allow users to complete tasks?  \\
+  \hline
+ \end{tabular}
+ \end{table}
 
+
+\subsection{Testing the second prototype}
+
+Since the second prototype was an implementation of the functions required by the application, the type of testing that was carried out was functional testing. Functional testing as described by Myers (2004) is the process of testing the application against the stated requirements at the start of the project. 
+
+This section shows the test cases along with the results from the test. The execution steps for each test were obtained from the use case descriptions in the requirements section. 
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:1 & Starting the application  \\
+  \hline 
+   Purpose & To determine whether the application loads without any errors  \\
+  \hline
+   Initiation Criteria & The user selects the application executable to start the application  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 1.  \\
+  \hline
+   Expected results & The application should load main screen without any errors.  \\
+  \hline
+ \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:2 & Obtaining video footage from Webcam.  \\
+  \hline 
+   Purpose & To determine video footage could be captured successfully by the WebCam.  \\
+  \hline
+   Initiation Criteria & When the application executable is clicked, the application initialises Webcam and shows footage in Webcam Panel.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 2.  \\
+  \hline
+   Expected results & Live video stream should be shown in the Webcam panel.  \\
+  \hline
+ \end{tabular}
+ \end{table}
+ 
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:3 & Obtaining video footage from Kinect sensor.  \\
+  \hline 
+   Purpose & To determine video footage could be captured successfully from Kinect sensor.  \\
+  \hline
+   Initiation Criteria & When the application executable is clicked, the application initialises Kinect sensor and shows video stream in Kinect panel.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 3.  \\
+  \hline
+   Expected results & Live video stream  obtained from Kinect should be shown in Kinect panel.  \\
+  \hline
+ \end{tabular}
+\end{table}
+ 
+ 
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:4 & Displaying coordinate positions of limbs in table.  \\
+  \hline 
+   Purpose & To determine the coordinate positions of the limbs are obtained and displayed in a table.  \\
+  \hline
+   Initiation Criteria & When a Video Frame is obtained from Kinect sensor, X and Y coordinates are extracted from Skeleton data and displayed in a table. \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 4.  \\
+  \hline
+   Expected results & X and Y coordinates for each part of the limb(Wrist, Elbow and Shoulder) should be displayed in a table.  \\
+  \hline
+ \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:5 & Start recording data from Kinect sensor. \\
+  \hline 
+   Purpose & To determine whether live data can be recorded from the Kinect sensor. \\
+  \hline
+   Initiation Criteria & When user clicks the start button.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 5.  \\
+  \hline
+   Expected results & Kinect sensor should start capturing video data. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:6 & Stop Recording Data from Kinect Sensor. \\
+  \hline 
+   Purpose & To determine whether live data being recorded from the Kinect sensor can be stopped. \\
+  \hline
+   Initiation Criteria & When user clicks the stop button.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 6.  \\
+  \hline
+   Expected results & Kinect sensor should stop recording the video footage being captured from the Kinect sensor. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:7 & Quitting the application. \\
+  \hline 
+   Purpose & To determine whether application closes when the "X" button on the window frame is clicked. \\
+  \hline
+   Initiation Criteria & When user clicks the close button on window frame.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 11.  \\
+  \hline
+   Expected results & The application should display a dialogue box which requests confirmation for closing the application. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:7 & Quitting the application. \\
+  \hline 
+   Purpose & To determine whether application closes when the "X" button on the window frame is clicked. \\
+  \hline
+   Initiation Criteria & When user clicks the close button on window frame.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 11.  \\
+  \hline
+   Expected results & The application should display a dialogue box which requests confirmation for closing the application. \\
+  \hline
+ \end{tabular}
+\end{table}
 
 \clearpage
+\newpage
+
+\subsection{Testing the third prototype}
+
+The tables below show test cases concerned with the ability to save and load data as both text and video formats as this was the main implementation in the third prototype.
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:8 & Save recorded data from Kinect sensor as text. \\
+  \hline 
+   Purpose & To determine whether application saves limb data recorded by the Kinect sensor in a CSV file. \\
+  \hline
+   Initiation Criteria & When user clicks the save button under data panel.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 7.  \\
+  \hline
+   Expected results & The application should create a CSV file with the limb movement data in the directory specified by the user. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:9 & Save recorded data from Kinect sensor as video. \\
+  \hline 
+   Purpose & To determine whether application saves limb data recorded by the Kinect sensor in a video format. \\
+  \hline
+   Initiation Criteria & When user clicks the "Save" from Menu Bar in Kinect Studio.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 8.  \\
+  \hline
+   Expected results & The application should save the video frames captured by the Kinect sensor in a directory specified by the user. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:10 & Load recorded movement data by Kinect sensor as text. \\
+  \hline 
+   Purpose & To determine whether application loads limb data recorded by the Kinect sensor from the csv file. \\
+  \hline
+   Initiation Criteria & When user clicks the load button from panel under the data panel.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 9.  \\
+  \hline
+   Expected results & The application should display the data stored in the csv file in the table adjacent to the table in the data panel. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:10 & Load recorded movement data by Kinect sensor as text. \\
+  \hline 
+   Purpose & To determine whether application loads limb data recorded by the Kinect sensor from the csv file. \\
+  \hline
+   Initiation Criteria & When user clicks the load button from panel under the data panel.  \\
+  \hline
+   Execution Steps & See successful completion of use case with ID 9.  \\
+  \hline
+   Expected results & The application should display the data stored in the csv file in the table adjacent to the table in the data panel. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:10 & Load recorded movement data by Kinect sensor as video format. \\
+  \hline 
+   Purpose & To determine whether application loads the video footage captured by the Kinect sensor. \\
+  \hline
+   Initiation Criteria & When user clicks the file which contains the saved video footage. \\
+  \hline
+   Execution Steps & The user selects "File", "Open" from the Kinect studio panel. A file chooser pops up and the user navigates to the directory in which the file was stored in and selects the video file.  \\
+  \hline
+   Expected results & The application should be able to load and playback the video footage in the Viewer3DPanel. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+ \begin{tabular}{|p{4cm}|p{10cm}|}
+ \hline
+  TestCase Field & Details \\
+  \hline
+   Test Case ID:11 & Comparing old saved data with live data . \\
+  \hline 
+   Purpose & To determine whether loaded limb movement data is displayed in the table which holds the old data for comparison with the new live data. \\
+  \hline
+   Initiation Criteria & After the user loads the limb movement data from the CSV file. \\
+  \hline
+   Execution Steps & see successful completion of use case with ID 10.  \\
+  \hline
+   Expected results & The application should display both the old data loaded from the CSV file and live data in their respective tables. This should allow for comparison of between the old data and new data. \\
+  \hline
+ \end{tabular}
+\end{table}
+
+\subsection{Test Results}
+\clearpage
+\newpage
+
+\section{Evaluation}
+
+
+
 \newpage
 \bibliographystyle{agsm}
 \bibliography{mybibliography}
