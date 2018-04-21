@@ -1,0 +1,66 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Barmpoutis}{2013}{barmpoutis2013}
+Barmpoutis, A.  \harvardyearleft 2013\harvardyearright , `Tensor body:
+  Real-time reconstruction of the human body and avatar synthesis from rgb-d',
+  {\em IEEE Transactions on Cybernetics, Special issue on Computer Vision for
+  RGB-D Sensors: Kinect and Its Applications} {\bf 43}(5),~1347--1356.
+
+\harvarditem[Clark et~al.]{Clark, Pua, Fortin, Ritchie, Webster, Denehy
+  \harvardand\ Bryant}{2012}{Clarketal2012}
+Clark, Ross, A., Pua, Y.-H., Fortin, K., Ritchie, C., Webster, Kate, E.,
+  Denehy, L. \harvardand\ Bryant, Adam, L.  \harvardyearleft
+  2012\harvardyearright , `Validity of the microsoft kinect for assessment of
+  postural control', {\em Gait and Posture} {\bf 36},~372--377.
+\newline\harvardurl{http://www.gaitposture.com/article/S0966-6362(12)00128-2/pdf}
+
+\harvarditem[Galna et~al.]{Galna, Barry, Jackson, Mhiripiri, Oliver
+  \harvardand\ Rochester}{2014}{Galnaetal2014}
+Galna, B., Barry, G., Jackson, D., Mhiripiri, D., Oliver, P. \harvardand\
+  Rochester, L.  \harvardyearleft 2014\harvardyearright , `Accuracy of the
+  microsoft kinect sensor for measuring movement in people with parkinson's
+  disease', {\em Gait and Posture} {\bf 39}(4),~1062--1068.
+\newline\harvardurl{http://www.gaitposture.com/article/S0966-6362(14)00024-1/pdf}
+
+\harvarditem{Microsoft}{2018}{Microsoft2018}
+Microsoft  \harvardyearleft 2018\harvardyearright , `Kinect for windows sensor
+  components and specifications'.
+\newblock [Online].
+\newline\harvardurl{https://msdn.microsoft.com/en-us/library/jj131033.aspx}
+
+\harvarditem[Mirek et~al.]{Mirek, Rudzińska \harvardand\
+  Szczudlik}{2007}{Mireketal2007}
+Mirek, E., Rudzińska, M. \harvardand\ Szczudlik, A.  \harvardyearleft
+  2007\harvardyearright , `The assessment of gait disorders in patients with
+  parkinson's disease using the three-dimensional motion analysis system
+  vicon.', {\em Neurologia i Neurochirurgia Polska} {\bf 41}(2),~128--133.
+\newline\harvardurl{https://www.ncbi.nlm.nih.gov/pubmed/17530574}
+
+\harvarditem{of~Defence}{2001}{Defence2001}
+of~Defence, D.  \harvardyearleft 2001\harvardyearright , {\em System
+  Engineering Fundamentals}, Defence Acquisition University Press.
+\newline\harvardurl{http://www.dau.mil/publications/publicationsdocs/sefguide
+  01-01.pdf}
+
+\harvarditem[Parajuli et~al.]{Parajuli, Tran, Ma \harvardand\
+  Sharma}{2012}{Parajulietal2012}
+Parajuli, M., Tran, D., Ma, W. \harvardand\ Sharma, D.  \harvardyearleft
+  2012\harvardyearright , Senior health monitoring using kinect, {\em in}
+  `Communications and Electronics (ICCE)', IEEE, pp.~309--312.
+\newblock [Online].
+\newline\harvardurl{ieeexplore.ieee.org/iel5/6307954/6315859/06315918.pdf}
+
+\harvarditem[Pfister et~al.]{Pfister, West, Bronner \harvardand\
+  Noah}{2014}{Pfisteretal2014}
+Pfister, A., West, A., Bronner, S. \harvardand\ Noah, J.  \harvardyearleft
+  2014\harvardyearright , `Comparative abilities of microsoft kinect and vicon
+  3d motion capture for gait analysis.', {\em Journal of Medical Engineering \&
+  Technology} {\bf 38}(5),~274--280.
+
+\harvarditem{Sabale \harvardand\ Dani}{2012}{Sabale2012}
+Sabale, Rajendra, G. \harvardand\ Dani, A, R.  \harvardyearleft
+  2012\harvardyearright , `Comparative study of prototype model for software
+  engineering with system development life cycle', {\em IOSR Journal of
+  Engineering (IOSRJEN)} {\bf 2}(7),~21--24.
+
+\end{thebibliography}

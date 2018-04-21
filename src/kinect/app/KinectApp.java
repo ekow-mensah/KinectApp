@@ -18,9 +18,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 
 import com.github.sarxos.webcam.Webcam;
 import com.github.sarxos.webcam.WebcamPanel;
@@ -29,7 +27,7 @@ import com.github.sarxos.webcam.WebcamResolution;
 import edu.ufl.digitalworlds.j4k.J4KSDK;
 
 @SuppressWarnings("serial")
-public class TheApp extends JFrame {
+public class KinectApp extends JFrame {
 	ViewerPanel3D viewer;
 	Kinect myKinect;
 	private JMenuBar menuBar;
@@ -56,24 +54,23 @@ public class TheApp extends JFrame {
 	private static JComboBox<String> comboBox;
 	private TableModel oldDataModel;
 	private JTable oldDataTable;
-	
+
 	JLabel accelerometer;
-	ArrayList<MyTableData> tableData;
+	// ArrayList<MyTableData> tableData;
 
-	public TheApp() {
+	public KinectApp() {
 
-		setTitle("Main App");
+		setTitle("Kinect App");
 		setSize(779, 768);
 		getContentPane().setBackground(Color.white);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{38, 313, 39, 299, 0};
-		gridBagLayout.rowHeights = new int[]{0, 264, 60, 0, 264, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-		getContentPane().setLayout(gridBagLayout);
+		gridBagLayout.columnWidths = new int[] { 38, 313, 39, 299, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 264, 60, 0, 264, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
 		getContentPane().setLayout(gridBagLayout);
 
 		lblWebcamStream = new JLabel("WebCam Stream");
@@ -132,11 +129,12 @@ public class TheApp extends JFrame {
 		getContentPane().add(lblLiveData, gbc_lblDataPanel);
 
 		logControls = new JPanel();
+		logControls.setBackground(Color.WHITE);
 		GridBagConstraints gbc_logControls = new GridBagConstraints();
-		gbc_logControls.insets = new Insets(0, 0, 5, 0);
+		gbc_logControls.insets = new Insets(0, 0, 5, 5);
 		gbc_logControls.fill = GridBagConstraints.BOTH;
 		gbc_logControls.gridx = 3;
-		gbc_logControls.gridy = 5;
+		gbc_logControls.gridy = 2;
 		getContentPane().add(logControls, gbc_logControls);
 
 		btnStart = new JButton("Start");
@@ -174,6 +172,7 @@ public class TheApp extends JFrame {
 				}
 			}
 		});
+
 		btnStop.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				myKinect.stop();
@@ -218,7 +217,7 @@ public class TheApp extends JFrame {
 		gbc_logPanel.gridx = 3;
 		gbc_logPanel.gridy = 4;
 		getContentPane().add(logPanel, gbc_logPanel);
-		
+
 		oldDataTable = new JTable();
 		logPanel.setLayout(new BorderLayout());
 		logPanel.add(oldDataTable, BorderLayout.CENTER);
@@ -226,6 +225,7 @@ public class TheApp extends JFrame {
 		logPanel.add(new JScrollPane(oldDataTable));
 
 		dataControlPanel = new JPanel();
+		dataControlPanel.setBackground(Color.WHITE);
 		GridBagConstraints gbc_dataControlPanel = new GridBagConstraints();
 		gbc_dataControlPanel.insets = new Insets(0, 0, 5, 5);
 		gbc_dataControlPanel.fill = GridBagConstraints.BOTH;
@@ -244,8 +244,8 @@ public class TheApp extends JFrame {
 
 			public void mouseClicked(MouseEvent e) {
 				fc = new JFileChooser();
-				fc.showSaveDialog(TheApp.this);
-				
+				fc.showSaveDialog(KinectApp.this);
+
 				LocalDate date = LocalDate.now();
 				try {
 					pw = new PrintWriter(new File(fc.getSelectedFile() + date.toString() + ".csv"));
@@ -265,7 +265,7 @@ public class TheApp extends JFrame {
 		btnLoad.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				fc = new JFileChooser();
-				fc.showOpenDialog(TheApp.this);
+				fc.showOpenDialog(KinectApp.this);
 				File dataFile = fc.getSelectedFile();
 				oldDataModel = new TableModel();
 				try {
@@ -273,18 +273,18 @@ public class TheApp extends JFrame {
 					csvReader.useDelimiter("\n");
 					while (csvReader.hasNext()) {
 						String bodyPart = "";
-						float xPos = 0; 
+						float xPos = 0;
 						float yPos = 0;
 						String dataString = csvReader.next();
-						bodyPart = dataString.substring(10,24).trim();
-						xPos = Float.parseFloat(dataString.substring(24,36).trim());
+						bodyPart = dataString.substring(10, 24).trim();
+						xPos = Float.parseFloat(dataString.substring(24, 36).trim());
 						yPos = Float.parseFloat(dataString.substring(40, dataString.length()).trim());
 						oldDataModel.addData(new MyTableData(bodyPart, xPos, yPos));
 					}
-					
+
 					oldDataTable.setModel(oldDataModel);
 					oldDataModel.fireTableDataChanged();
-					
+
 				} catch (FileNotFoundException e1) {
 					JOptionPane.showMessageDialog(messageFrame,
 							"The File could not be found. Please check to see if file exists on the system.");
@@ -327,7 +327,7 @@ public class TheApp extends JFrame {
 
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new TheApp();
+				new KinectApp();
 			}
 		});
 	}

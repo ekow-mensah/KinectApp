@@ -1,0 +1,35 @@
+% Encoding: UTF-8
+
+@InProceedings{Ismail2015,
+  author    = {Ismail, N and Basah, S},
+  title     = {The Applications of Microsoft Kinect for Human Motion Capture and Analysis: A Review},
+  booktitle = {2015 2nd International Conference on Biomedical Engineering (ICoBE)},
+  year      = {2015},
+  pages     = {1-4},
+  publisher = {IEEE},
+  url       = {https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7235894 },
+}
+
+@Article{Mireketal2007,
+  author  = {Mirek, E and Rudzińska, M and Szczudlik, A},
+  title   = {The assessment of gait disorders in patients with Parkinson's disease using the three-dimensional motion analysis system Vicon.},
+  journal = {Neurologia i Neurochirurgia Polska},
+  year    = {2007},
+  volume  = {41},
+  number  = {2},
+  pages   = {128-133},
+  url     = {https://www.ncbi.nlm.nih.gov/pubmed/17530574 },
+}
+
+@Article{,
+  author  = {Pfister, A. and West, A and Bronner, S and Noah, J.},
+  title   = {Comparative abilities of Microsoft Kinect and Vicon 3D motion capture for gait analysis.},
+  journal = {Journal of Medical Engineering \& Technology},
+  year    = {2014},
+  volume  = {38},
+  number  = {5},
+  pages   = {274-280},
+  url     = {http://www.tandfonline.com/doi/full/10.3109/03091902.2014.909540?scroll=top&needAccess=true },
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

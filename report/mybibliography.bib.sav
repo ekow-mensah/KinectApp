@@ -1,0 +1,178 @@
+% Encoding: UTF-8
+
+@InProceedings{Ismail2015,
+  author    = {Ismail, N and Basah, S},
+  title     = {The Applications of Microsoft Kinect for Human Motion Capture and Analysis: A Review},
+  booktitle = {2015 2nd International Conference on Biomedical Engineering (ICoBE)},
+  year      = {2015},
+  pages     = {1-4},
+  publisher = {IEEE},
+  url       = {https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7235894 },
+}
+
+@Article{Mireketal2007,
+  author  = {Mirek, E and Rudzińska, M and Szczudlik, A},
+  title   = {The assessment of gait disorders in patients with Parkinson's disease using the three-dimensional motion analysis system Vicon.},
+  journal = {Neurologia i Neurochirurgia Polska},
+  year    = {2007},
+  volume  = {41},
+  number  = {2},
+  pages   = {128-133},
+  url     = {https://www.ncbi.nlm.nih.gov/pubmed/17530574 },
+}
+
+@Article{Pfisteretal2014,
+  author  = {Pfister, A. and West, A and Bronner, S and Noah, J.},
+  title   = {Comparative abilities of Microsoft Kinect and Vicon 3D motion capture for gait analysis.},
+  journal = {Journal of Medical Engineering \& Technology},
+  year    = {2014},
+  volume  = {38},
+  number  = {5},
+  pages   = {274-280},
+}
+
+@Article{Clarketal2012,
+  author  = {Clark, Ross, A and Pua, Yong-Hao and Fortin, Karine and Ritchie, Callan and Webster, Kate, E and Denehy, Linda and Bryant, Adam, L},
+  title   = {Validity of the Microsoft Kinect for assessment of postural control},
+  journal = {Gait and Posture},
+  year    = {2012},
+  volume  = {36},
+  pages   = {372-377},
+  month   = jul,
+  url     = {http://www.gaitposture.com/article/S0966-6362(12)00128-2/pdf},
+}
+
+@Article{Galnaetal2014,
+  author  = {Galna, Brook and Barry, Gillian and Jackson, Dan and Mhiripiri, Dadirayi and Oliver, Patrick and Rochester, Lynn},
+  title   = {Accuracy of the Microsoft Kinect sensor for measuring movement in people with Parkinson's disease},
+  journal = {Gait and Posture},
+  year    = {2014},
+  volume  = {39},
+  number  = {4},
+  pages   = {1062-1068},
+  month   = apr,
+  url     = {http://www.gaitposture.com/article/S0966-6362(14)00024-1/pdf},
+}
+
+@Article{barmpoutis2013,
+  author  = {A. Barmpoutis},
+  title   = {Tensor Body: Real-time Reconstruction of the Human Body and Avatar Synthesis from RGB-D},
+  journal = {IEEE Transactions on Cybernetics, Special issue on Computer Vision for RGB-D Sensors: Kinect and Its Applications},
+  year    = {2013},
+  volume  = {43},
+  number  = {5},
+  pages   = {1347-1356},
+  month   = {October},
+}
+
+@Website{Microsoft2018,
+  author  = {Microsoft},
+  title   = {Kinect for Windows Sensor Components and Specifications},
+  year    = {2018},
+  note    = {[Online]},
+  url     = {https://msdn.microsoft.com/en-us/library/jj131033.aspx},
+  urldate = {2018-04-18},
+}
+
+@InProceedings{Parajulietal2012,
+  author    = {Parajuli, M and Tran, Dat and Ma, Wanli and Sharma, D},
+  title     = {Senior health monitoring using Kinect},
+  booktitle = {Communications and Electronics (ICCE)},
+  year      = {2012},
+  pages     = {309-312},
+  month     = oct,
+  publisher = {IEEE},
+  note      = {[Online]},
+  url       = {ieeexplore.ieee.org/iel5/6307954/6315859/06315918.pdf},
+}
+
+@Article{Sabale2012,
+  author  = {Sabale, Rajendra, Ganpatrao and Dani, A,R},
+  title   = {Comparative Study of Prototype Model For Software Engineering With System Development Life Cycle},
+  journal = {IOSR Journal of Engineering (IOSRJEN)},
+  year    = {2012},
+  volume  = {2},
+  number  = {7},
+  pages   = {21-24},
+  month   = jul,
+}
+
+@Book{Defence2001,
+  title     = {System Engineering Fundamentals},
+  publisher = {Defence Acquisition University Press},
+  year      = {2001},
+  author    = {Department of Defence},
+  url       = {http://www.dau.mil/publications/publicationsdocs/sefguide 01-01.pdf},
+}
+
+@TechReport{Edie2005,
+  author      = {Petter L. H Eide},
+  title       = {Quantification and Traceability of Requirements},
+  institution = {Norwegian University of Science and Technology},
+  year        = {2005},
+  type        = {techreport},
+  url         = {http://www.idi.ntnu.no/grupper/su/fordypningsprosjekt-2005/eide-fordyp05.pdf},
+}
+
+@Electronic{OpenKinect2012,
+  author  = {OpenKinect},
+  year    = {2012},
+  title   = {Welcome to the OpenKinect project},
+  note    = {[Online]},
+  urldate = {2018-04-18},
+}
+
+@Electronic{FloridaInc2013,
+  author  = {University of Florida Digital Worlds Institute},
+  year    = {2013},
+  title   = {J4K Java Library},
+  note    = {[Online]},
+  url     = {http://research.dwi.ufl.edu/ufdw/j4k/},
+  urldate = {2018-04-18},
+}
+
+@Electronic{OpenNI2018,
+  author  = {OpenNI},
+  year    = {2018},
+  title   = {What is Open NI},
+  note    = {[Online]},
+  url     = {http://www.openni.ru/resources/index.html},
+  urldate = {2018-04-18},
+}
+
+@Book{,
+  title     = {USE-CASE 2.0 The Definitive Guide},
+  publisher = {Ivar Jacobson International SA},
+  year      = {2011},
+  author    = {Jakobson and Bittner, Kurt and Spence, Ian},
+  url       = {https://www.ivarjacobson.com/sites/default/files/field_iji_file/article/use-case_2_0_jan11.pdf},
+}
+
+@Electronic{Martin1996,
+  author  = {Martin, Suzzane},
+  year    = {1996},
+  title   = {What is Open},
+  note    = {[Online]},
+  url     = {http://www.openni.ru/resources/index.html},
+  urldate = {2018-04-18},
+}
+
+@Book{,
+  title     = {Software Engineering},
+  publisher = {Addision-Wiley},
+  year      = {2011},
+  author    = {Sommerville, I},
+  editor    = {Holcomb, J and Bell, C and Goldstein, M and Hirsch, M},
+  edition   = {9nth},
+}
+
+@Electronic{Oracle2017,
+  author  = {Oracle},
+  year    = {2017},
+  title   = {What is Open N?},
+  note    = {[Online]},
+  url     = {https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html},
+  urldate = {2018-04-18},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

@@ -1,9 +1,5 @@
 package kinect.app;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import javax.swing.JLabel;
 
 import edu.ufl.digitalworlds.j4k.DepthMap;
@@ -46,9 +42,9 @@ import edu.ufl.digitalworlds.j4k.Skeleton;
  */
 public class Kinect extends J4KSDK {
 
-	ViewerPanel3D viewer = null;
-	JLabel label = null;
-	boolean mask_players = false;
+	private ViewerPanel3D viewer = null;
+	private JLabel label = null;
+	private boolean mask_players = false;
 	private TableModel tm = new TableModel();
 
 	public void maskPlayers(boolean flag) {
@@ -78,8 +74,12 @@ public class Kinect extends J4KSDK {
 	}
 
 	@Override
+	// This is a callback function that is called whenever a depth frame is received
+	// from the kinect sensor.
 	public void onDepthFrameEvent(short[] depth_frame, byte[] player_index, float[] XYZ, float[] UV) {
 
+		// checks to see if an instance of the ViewerPanel3D exists or a label
+		// exists if not, the function returns to the calling function.
 		if (viewer == null || label == null)
 			return;
 		float a[] = getAccelerometerReading();
@@ -89,6 +89,9 @@ public class Kinect extends J4KSDK {
 
 		map.setMaximumAllowedDeltaZ(0.5);
 
+		// If a UV texture exists and a the use_infrared boolean is true,
+		// the depth map is set to the UV texture. If UV texture exists then
+		// then a uniform UV texture is generated for the depth map.
 		if (UV != null && !use_infrared)
 			map.setUV(UV);
 		else if (use_infrared)
@@ -97,18 +100,24 @@ public class Kinect extends J4KSDK {
 			map.setPlayerIndex(depth_frame, player_index);
 			map.maskPlayers();
 		}
+
+		// this sets the ViewerPanel3D's depth map to the DepthMap map.
 		viewer.map = map;
 	}
 
 	@Override
+	// callback function which executes when a new skeleton frame is received.
 	public void onSkeletonFrameEvent(boolean[] flags, float[] positions, float[] orientations, byte[] state) {
+		//checks to see if an instance of the ViewerPanel3D exists or 
+		//if a skeleton frame exists. If both exist then on 
+		//each skeleton frame, the ViewerPanel3D object 
+		//is updated with the position and orientation of 
+		//the skeleton from the received skeleton frame.  
 		if (viewer == null || viewer.skeletons == null)
 			return;
 
 		for (int i = 0; i < getSkeletonCountLimit(); i++) {
 			viewer.skeletons[i] = Skeleton.getSkeleton(i, flags, positions, orientations, state, this);
-
-			// DecimalFormat df = new DecimalFormat("#.###");
 
 			if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT) != 0
@@ -123,7 +132,7 @@ public class Kinect extends J4KSDK {
 					&& viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_RIGHT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_RIGHT) != 0) {
 
-				int value = TheApp.getComboSelectedValue();
+				int value = KinectApp.getComboSelectedValue();
 
 				switch (value) {
 				case 0:
@@ -148,6 +157,7 @@ public class Kinect extends J4KSDK {
 
 					break;
 				}
+
 				/*
 				 * System.out.printf("Elbow Left X Position: %f\n",
 				 * viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT));
@@ -168,8 +178,12 @@ public class Kinect extends J4KSDK {
 
 	}
 
+	// callback function that executes when new color frame is received
 	@Override
 	public void onColorFrameEvent(byte[] data) {
+		// checks to see if video texture exists or use_infrared is set to false
+		// if condition is satisfied, return to method body of calling method
+		// otherwise the ViewerPanel3D is updated with the new video texture.
 		if (viewer == null || viewer.videoTexture == null || use_infrared)
 			return;
 		viewer.videoTexture.update(getColorWidth(), getColorHeight(), data);

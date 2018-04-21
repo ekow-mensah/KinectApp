@@ -1,0 +1,35 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{5}{section.1}
+\contentsline {subsection}{\numberline {1.1}Problem Statement}{5}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Purpose of project}{5}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Project Aim and Objectives}{6}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Aim}{6}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Objectives}{6}{subsubsection.1.3.2}
+\contentsline {subsection}{\numberline {1.4}Background and Related Work}{7}{subsection.1.4}
+\contentsline {section}{\numberline {2}Requirements Definition}{8}{section.2}
+\contentsline {subsection}{\numberline {2.1}Basic Requirement Identification}{8}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Application Requirements}{9}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Use Case Descriptions}{10}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4} Data Gathering}{20}{subsection.2.4}
+\contentsline {section}{\numberline {3}System Design}{21}{section.3}
+\contentsline {subsection}{\numberline {3.1}Choice of Development Methodology}{21}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Choice of Development Language}{22}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Choice of Development Library for Kinect}{22}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Open Kinect}{23}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Open NI SDK}{23}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Java For Kinect (J4K)}{23}{subsubsection.3.3.3}
+\contentsline {subsection}{\numberline {3.4}Design of first prototype}{24}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}The Application Screen}{25}{subsubsection.3.4.1}
+\contentsline {subsection}{\numberline {3.5}Design of second prototype}{28}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Class Diagram}{30}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Explanation of dependencies}{31}{subsubsection.3.5.2}
+\contentsline {subsection}{\numberline {3.6}Design of third prototype}{32}{subsection.3.6}
+\contentsline {section}{\numberline {4}Application Development}{34}{section.4}
+\contentsline {subsection}{\numberline {4.1}Implementation of first prototype}{34}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Implementation of second prototype}{36}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}The Kinect Class}{37}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}The TableModel class}{38}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}MyTableData class}{40}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Implementation of Button Events}{41}{subsubsection.4.2.4}
+\contentsline {subsection}{\numberline {4.3}Implementation of third prototype}{42}{subsection.4.3}
+\contentsline {section}{\numberline {5}Testing}{44}{section.5}
