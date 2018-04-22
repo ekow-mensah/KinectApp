@@ -37,3 +37,15 @@
 \BOOKMARK [2][-]{subsection.5.3}{Testing\040the\040third\040prototype}{section.5}% 37
 \BOOKMARK [2][-]{subsection.5.4}{Test\040Results}{section.5}% 38
 \BOOKMARK [1][-]{section.6}{Evaluation}{}% 39
+\BOOKMARK [2][-]{subsection.6.1}{Evaluation\040of\040final\040application}{section.6}% 40
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Recap\040of\040aim\040and\040objectives}{subsection.6.1}% 41
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Evaluation\040of\040Graphical\040User\040Interface}{subsection.6.1}% 42
+\BOOKMARK [2][-]{subsection.6.2}{Evaluation\040of\040application\040against\040set\040objectives}{section.6}% 43
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Identify\040the\040ability\040of\040motion\040tracking\040on\040Kinect}{subsection.6.2}% 44
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Quantify\040movement\040of\040the\040upper\040limb}{subsection.6.2}% 45
+\BOOKMARK [3][-]{subsubsection.6.2.3}{Allow\040patient\040to\040see\040the\040performance\040of\040the\040upper\040limb}{subsection.6.2}% 46
+\BOOKMARK [3][-]{subsubsection.6.2.4}{Allow\040user\040to\040record\040data\040of\040patient's\040movement\040in\040video\040and\040text}{subsection.6.2}% 47
+\BOOKMARK [3][-]{subsubsection.6.2.5}{Allow user to compare data of patient’s movement.}{subsection.6.2}% 48
+\BOOKMARK [1][-]{section.7}{Conclusion\040and\040Future\040Work}{}% 49
+\BOOKMARK [2][-]{subsection.7.1}{Conclusion}{section.7}% 50
+\BOOKMARK [2][-]{subsection.7.2}{Future\040Work}{section.7}% 51

@@ -623,7 +623,7 @@ The 5 main classes (i.e. Kinect, ViewerPanel3D, TableModel, KinectApp, MyTableDa
 
 \subsection{Design of third prototype}
 
-The third prototype contained all of the functionality of the second prototype however, minor changes were made to the graphical user interface including the ability to save movement data in both video and text formats. From figure 1 in section 3.4.1, the fourth panel contained a log which showed where the save recordings were. This was changed to a table which showed old movement data loaded from a CSV file. Also the functions for saving and loading data live data movement data captured as text were implemented in this prototype.
+The third prototype was the final prototype that was designed. It contained all of the functionality of the second prototype however, minor changes were made to the graphical user interface including the ability to save movement data in both video and text formats. From figure 1 in section 3.4.1, the fourth panel contained a log which showed where the save recordings were. This was changed to a table which showed old movement data loaded from a CSV file. Also the functions for saving and loading data live data movement data captured as text were implemented in this prototype.
 
 \begin{figure}[!htb]
 	\begin{center}
@@ -1029,24 +1029,6 @@ This section shows the test cases along with the results from the test. The exec
 \end{table}
 
 
-\begin{table}[!htb]
- \begin{tabular}{|p{4cm}|p{10cm}|}
- \hline
-  TestCase Field & Details \\
-  \hline
-   Test Case ID:7 & Quitting the application. \\
-  \hline 
-   Purpose & To determine whether application closes when the "X" button on the window frame is clicked. \\
-  \hline
-   Initiation Criteria & When user clicks the close button on window frame.  \\
-  \hline
-   Execution Steps & See successful completion of use case with ID 11.  \\
-  \hline
-   Expected results & The application should display a dialogue box which requests confirmation for closing the application. \\
-  \hline
- \end{tabular}
-\end{table}
-
 \clearpage
 \newpage
 
@@ -1115,27 +1097,8 @@ The tables below show test cases concerned with the ability to save and load dat
  \hline
   TestCase Field & Details \\
   \hline
-   Test Case ID:10 & Load recorded movement data by Kinect sensor as text. \\
-  \hline 
-   Purpose & To determine whether application loads limb data recorded by the Kinect sensor from the csv file. \\
+   Test Case ID:11 & Load recorded movement data by Kinect sensor as video format. \\
   \hline
-   Initiation Criteria & When user clicks the load button from panel under the data panel.  \\
-  \hline
-   Execution Steps & See successful completion of use case with ID 9.  \\
-  \hline
-   Expected results & The application should display the data stored in the csv file in the table adjacent to the table in the data panel. \\
-  \hline
- \end{tabular}
-\end{table}
-
-
-\begin{table}[!htb]
- \begin{tabular}{|p{4cm}|p{10cm}|}
- \hline
-  TestCase Field & Details \\
-  \hline
-   Test Case ID:10 & Load recorded movement data by Kinect sensor as video format. \\
-  \hline 
    Purpose & To determine whether application loads the video footage captured by the Kinect sensor. \\
   \hline
    Initiation Criteria & When user clicks the file which contains the saved video footage. \\
@@ -1153,7 +1116,7 @@ The tables below show test cases concerned with the ability to save and load dat
  \hline
   TestCase Field & Details \\
   \hline
-   Test Case ID:11 & Comparing old saved data with live data . \\
+   Test Case ID:12 & Comparing old saved data with live data . \\
   \hline 
    Purpose & To determine whether loaded limb movement data is displayed in the table which holds the old data for comparison with the new live data. \\
   \hline
@@ -1171,8 +1134,67 @@ The tables below show test cases concerned with the ability to save and load dat
 \newpage
 
 \section{Evaluation}
+This section assesses and discusses the the final prototype (the third prototype) and the extent to which it met the objectives set at the start of the project. Furthermore, it includes improvements that could be made in the future. 
+
+\subsection{Evaluation of final application}
+
+\subsubsection{Recap of aim and objectives}
+As stated in section 1.3 the aim of this project was to develop a user-friendly interface to quantify the movement of the upper limbs of a patient and to use the data to monitor the progress of recovery. From the testing section it can be concluded that this was accomplished. The Objectives were to: 
+
+\begin{itemize}
+	\item Identify the ability of motion tracking on Kinect.
+	\item Quantify movement of the upper limb.
+	\item Allow patient to see the performance of the upper limb.
+	\item Allow user to record data of patient’s movement in video and text.
+	\item Allow user to compare data of patient’s movement.
+\end{itemize}
+
+\subsubsection{Evaluation of Graphical User Interface}
+To assess the user-friendliness of the developed graphical user interface, the heuristic guidelines developed by Nielsen and Monlich (1990) was used. Although, other guidelines exist, these guidelines are one of the most popular and are easy to understand.  The guidelines and the confirmation for why the guideline has been achieved in the user-interface design is explained below. 
 
 
+\textbf{Visibility of the Systems status:} The application provides the user with feedback for instance when the button to stop recording is clicked or when the pause button is pressed. 
+
+\textbf{Aesthetic and minimalist design:} Dialogue boxes contain short messages which are relevant to the task being carried out. Moreover, the application layout is simple and neat. Users can identify and distinguish what each button or display does.
+
+\textbf{Help users recover from errors:} Error messages generated by the application do not just print an error but suggests a solution to the error. For example in an event where the saved file cannot be found, the application informs the user to check if the file actually exists on the system.
+
+\textbf{Error Prevention:} This involved forcing the user to perform certain actions to prevent an error from occurring. For example, the applicaton makes use of a combo box which enables the user to select a specific limb to focus on. The use of a combo box prevents errors by limiting the options of the user forcing them to pick a correct one. 
+
+\textbf{Match between System and Real World:} The language used in the application was similar to what users use in everyday life for simple tasks. Users are often used to words such as ``start'', ``stop'', ``save'' , ``load'' etc. when starting a process, stopping a process, saving or loading from a word processor for example. Other synonyms such as ``commit'' could have been used for save but that will not be wise as it may be a more technical term.  
+
+\textbf{Flexibility and efficiency of use: } The application GUI is really simple and intuitive to use. It contains minimal functionality and therefore can be used by both experienced and novice users
+
+
+\subsection{Evaluation of application against set objectives}
+
+\subsubsection{Identify the ability of motion tracking on Kinect}
+This objective was achieved through research on the ability of the Kinect to track the limb movements of the user (see Background and related work section). Furthermore, experiments were performed using the Kinect SDK provided by Microsoft to assess the ability of the Kinect sensor's motion tracking abilities. 
+
+\subsubsection{Quantify movement of the upper limb}
+This objective was achieved to some extent. The application displayed the X and Y coordinates of the upper limbs of the individual. This was obtained from the Skeleton frame captured by the Kinect sensor. Although the X and Y coordinates quantify the movement data (because coordinate positions show how far limb has moved), it was not the best way of quantifying movement. A much better way of doing this will be to calculate the height at which the upper limbs reached when moved and the speed at which the upper limbs moved. The height and speed could have been calculated using the coordinate data. 
+
+
+\subsubsection{Allow patient to see the performance of the upper limb}
+This was achieved by displaying both the video footages from the Webcam and Kinect sensor. The video footages captured by both devices are live and therefore, the user can see the performance of the limbs as they move in real-time. Also the Skeleton is projected onto the user in the Kinect panel and as the limbs move the skeleton shows the movement of the limbs. This aids in assessing the performance of the upper limbs. 
+
+\subsubsection{Allow user to record data of patient's movement in video and text}
+The application successfully achieves this objective as the application allows the patient to record the and playback video footages captured by the Kinect sensor after the start button is clicked. Furthermore, the application allows the user to save the X and Y coordinates of the upper limb stored in CSV files.  
+
+\subsubsection{Allow user to compare data of patient’s movement.}
+This objective was achieved to some extent because, the application allowed the user to load old patient data stored in a CSV file back into the application. This old data could be compared with the new live data to see progress of recovery. The progress of recovery can be determined by comparing the values of the X and Y coordinates of the old data with the live data. For instance if the patient manages to stretch the arm higher, the X and Y coordinates in the new data will have higher values than the X and Y coordinates in the old data. Although this works, it is not the best way of doing this. A much better is to calculate the height at which the limb reached and the speed at which it moved from the coordinate data obtained from the skeleton frames and then compare those two in both the old data and new data.
+
+
+
+\section{Conclusion and Future Work}
+
+\subsection{Conclusion}
+In conclusion, It is safe to say that a good attempt was made in accomplishing the aim and objectives that were set at the start of the project. A simple, low cost application for motion analysis of the upper limbs to aid in understanding patient recovery has been designed and implemented using the Kinect sensor, however, a few tweaks need to be made in order to make the application production ready. Referring to the previous section, it is evident that most of the objectives were achieved and therefore one can conclude that the project was relatively successful. 
+
+
+\subsection{Future Work}
+
+If there was sufficient time, there are a few added functions that if implemented, would have added to the usefulness of the application. One of these functions is to show the previous performance as a translucent shadow or as a different colour in the live Kinect video stream. This will allow the user to compare the current performance and live performance in real-time. An alternative will be to show the skeleton of the previous performance and show that in the live video footage. Another factors to consider will be when the angle between the Kinect and the user's seating position changes. This is could be problematic because comparisons between the old data and new data may no longer be accurate as a result of the change in angle. A solution to this problem will be to set a reference point. This can be done by instructing the user to perform the same pose and ensuring that the skeleton data from the old pose matches the new pose. This will be done each time before recording new data. That way the data will not be affected by changes in the angle. The graphical user interface does not scale properly when it is changed from maximised to its original size. This would have been corrected if there was more time available. 
 
 \newpage
 \bibliographystyle{agsm}

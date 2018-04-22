@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2018.4.18)  21 APR 2018 18:39
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/W32TeX) (preloaded format=xelatex 2018.4.18)  22 APR 2018 02:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1183,22 +1183,23 @@ Overfull \hbox (8.2385pt too wide) in paragraph at lines 878--893
 
 ] [49] [50
 
-] (./report.bbl [51])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1182.
- [52]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1182.
- (./report.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1182.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1182.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1182.
+] [51] [52] [53] [54] (./report.bbl [55])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1205.
+ [56]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1205.
+
+(./report.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1205.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1205.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1205.
  ) 
 Here is how much of TeX's memory you used:
- 20442 strings out of 493007
- 390893 string characters out of 6137965
- 513858 words of memory out of 5000000
- 24240 multiletter control sequences out of 15000+600000
+ 20446 strings out of 493007
+ 390947 string characters out of 6137965
+ 513231 words of memory out of 5000000
+ 24244 multiletter control sequences out of 15000+600000
  533520 words of font info for 51 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  36i,11n,65p,10380b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (52 pages).
+Output written on report.pdf (56 pages).
