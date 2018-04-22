@@ -10,12 +10,14 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.*;
@@ -54,6 +56,7 @@ public class KinectApp extends JFrame {
 	private static JComboBox<String> comboBox;
 	private TableModel oldDataModel;
 	private JTable oldDataTable;
+	private WindowListener exitWindowListener;
 
 	JLabel accelerometer;
 	// ArrayList<MyTableData> tableData;
@@ -63,7 +66,21 @@ public class KinectApp extends JFrame {
 		setTitle("Kinect App");
 		setSize(779, 768);
 		getContentPane().setBackground(Color.white);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		exitWindowListener = new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent event) {
+				int option = JOptionPane.showOptionDialog(messageFrame, " Are you sure you want to quit?", 
+						"Exit Confirmation",
+						JOptionPane.YES_NO_OPTION, 
+						JOptionPane.QUESTION_MESSAGE, null, null, null);
+				
+				if (option == 0) {
+					System.exit(0);
+				}
+			}
+		};
+		//setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		addWindowListener(exitWindowListener);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -101,14 +118,13 @@ public class KinectApp extends JFrame {
 		gbc_webcampanel.gridy = 1;
 		getContentPane().add(webcamPanel, gbc_webcampanel);
 
-		
 		myKinect = new Kinect();
-		
+
 		if (!myKinect.start(J4KSDK.DEPTH | J4KSDK.SKELETON | J4KSDK.COLOR | J4KSDK.XYZ | J4KSDK.PLAYER_INDEX)) {
 			System.out.println("hello");
 		}
 		accelerometer = new JLabel("0,0,0");
-		
+
 		viewer = new ViewerPanel3D();
 		viewer.setShowVideo(false);
 		myKinect.setViewer(viewer);
@@ -118,7 +134,7 @@ public class KinectApp extends JFrame {
 		myKinect.setSeatedSkeletonTracking(true);
 		myKinect.setColorResolution(640, 480);
 		myKinect.setDepthResolution(640, 480);
-		
+
 		GridBagConstraints gbc_kinectpanel = new GridBagConstraints();
 		gbc_kinectpanel.fill = GridBagConstraints.BOTH;
 		gbc_kinectpanel.insets = new Insets(0, 0, 5, 30);
@@ -143,8 +159,11 @@ public class KinectApp extends JFrame {
 		getContentPane().add(logControls, gbc_logControls);
 
 		btnStart = new JButton("Start");
+		btnStart.setToolTipText("Starts recording the data from the Kinect sensor");
 		btnPause = new JButton("Pause");
+		btnPause.setToolTipText("Stops the Kinect video footage temporarily until unpased");
 		btnStop = new JButton("Stop");
+		btnStop.setToolTipText("Stops collecting data from the Kinect sensor");
 
 		btnStart.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -163,6 +182,7 @@ public class KinectApp extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if (btnPause.getText().compareTo("Pause") == 0) {
 					myKinect.stop();
+					JOptionPane.showMessageDialog(messageFrame, "Kinect Video Stream Paused");
 					btnPause.setText("UnPause");
 				} else {
 					myKinect.start(J4KSDK.DEPTH | J4KSDK.SKELETON | J4KSDK.COLOR | J4KSDK.XYZ | J4KSDK.PLAYER_INDEX);
@@ -239,8 +259,11 @@ public class KinectApp extends JFrame {
 		getContentPane().add(dataControlPanel, gbc_dataControlPanel);
 
 		btnLoad = new JButton("Load");
+		btnLoad.setToolTipText("Loads data from a CSV file into the table");
 		btnSave = new JButton("Save");
+		btnSave.setToolTipText("Saves the data in the table in a CSV file format");
 		btnClear = new JButton("Clear");
+		btnClear.setToolTipText("Clears the data displayed in the table");
 		comboBox = new JComboBox<String>();
 		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] { "Left Arm", "Right Arm" }));
 		dataControlPanel.add(comboBox);
@@ -259,7 +282,9 @@ public class KinectApp extends JFrame {
 					}
 					JOptionPane.showMessageDialog(messageFrame, "Data Saved Successfully");
 				} catch (Exception writerException) {
-					System.err.println(writerException.getMessage());
+					JOptionPane.showMessageDialog(messageFrame,
+							"Please check that the file is named properly. Avoid using any special characters (e.g. -/:@)",
+							"Error while saving file", JOptionPane.ERROR_MESSAGE);
 				} finally {
 					pw.close();
 				}
@@ -330,7 +355,7 @@ public class KinectApp extends JFrame {
 
 	public static void main(String[] args) {
 
-		java.awt.EventQueue.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				new KinectApp();
 			}
