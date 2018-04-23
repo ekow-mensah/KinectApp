@@ -12,18 +12,7 @@ public class MyTableData {
 		this.yPos = yPos;
 	}
 
-	public void setBodyPart(String bodyPart) {
-		this.bodyPart = bodyPart;
-	}
-
-	public void setXPos(float xPos) {
-		this.xPos = xPos;
-	}
-
-	public void setYPos(float yPos) {
-		this.yPos = yPos;
-	}
-
+	
 	// accessor methods which return field values
 	public String getBodyPart() {
 		return bodyPart;

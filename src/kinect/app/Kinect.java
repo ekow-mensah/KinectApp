@@ -1,47 +1,16 @@
 package kinect.app;
 
+/*A. Barmpoutis. "Tensor Body: Real-time Reconstruction of the Human Body 
+* and Avatar Synthesis from RGB-D', IEEE Transactions on Cybernetics, 
+* October 2013, Vol. 43(5), Pages: 1347-1356. 
+*/
 
 import javax.swing.JLabel;
-
 
 import edu.ufl.digitalworlds.j4k.DepthMap;
 import edu.ufl.digitalworlds.j4k.J4KSDK;
 import edu.ufl.digitalworlds.j4k.Skeleton;
 
-/*
- * Copyright 2011-2014, Digital Worlds Institute, University of 
- * Florida, Angelos Barmpoutis.
- * All rights reserved.
- *
- * When this program is used for academic or research purposes, 
- * please cite the following article that introduced this Java library: 
- * 
- * A. Barmpoutis. "Tensor Body: Real-time Reconstruction of the Human Body 
- * and Avatar Synthesis from RGB-D', IEEE Transactions on Cybernetics, 
- * October 2013, Vol. 43(5), Pages: 1347-1356. 
- * 
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are
- * met:
- *     * Redistributions of source code must retain this copyright
- * notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce this
- * copyright notice, this list of conditions and the following disclaimer
- * in the documentation and/or other materials provided with the
- * distribution.
- * 
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 public class Kinect extends J4KSDK {
 
 	private ViewerPanel3D viewer = null;
@@ -57,6 +26,8 @@ public class Kinect extends J4KSDK {
 		super();
 	}
 
+	// used to initialise kinect object for a
+	// type of inect sensor version
 	public Kinect(byte type) {
 		super(type);
 	}
@@ -69,6 +40,7 @@ public class Kinect extends J4KSDK {
 		this.label = l;
 	}
 
+	// determine whether to use infrared
 	private boolean use_infrared = false;
 
 	public void updateTextureUsingInfrared(boolean flag) {
@@ -76,7 +48,8 @@ public class Kinect extends J4KSDK {
 	}
 
 	@Override
-	// This is a callback function that is called whenever a depth frame is received
+	// This is a callback function that is called
+	// whenever a depth frame is received
 	// from the kinect sensor.
 	public void onDepthFrameEvent(short[] depth_frame, byte[] player_index, float[] XYZ, float[] UV) {
 
@@ -110,17 +83,18 @@ public class Kinect extends J4KSDK {
 	@Override
 	// callback function which executes when a new skeleton frame is received.
 	public void onSkeletonFrameEvent(boolean[] flags, float[] positions, float[] orientations, byte[] state) {
-		//checks to see if an instance of the ViewerPanel3D exists or 
-		//if a skeleton frame exists. If both exist then on 
-		//each skeleton frame, the ViewerPanel3D object 
-		//is updated with the position and orientation of 
-		//the skeleton from the received skeleton frame.  
-		if (viewer == null || viewer.skeletons == null) 
+		// checks to see if an instance of the ViewerPanel3D exists or
+		// if a skeleton frame exists. If both exist then on
+		// each skeleton frame, the ViewerPanel3D object
+		// is updated with the position and orientation of
+		// the skeleton from the received skeleton frame.
+		if (viewer == null || viewer.skeletons == null)
 			return;
-			
+
 		for (int i = 0; i < getSkeletonCountLimit(); i++) {
 			viewer.skeletons[i] = Skeleton.getSkeleton(i, flags, positions, orientations, state, this);
 
+			// The if statement is used to remove any zero values from the upper limb data.
 			if (viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT) != 0
 					&& viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT) != 0
@@ -136,6 +110,11 @@ public class Kinect extends J4KSDK {
 
 				int value = KinectApp.getComboSelectedValue();
 
+				/*
+				 * gets the value (i.e. left arm or right arm) to choose which data to add to
+				 * the table model. if user select left arm add data for left arm (wrist, elbow
+				 * and shoulder) only and vice versa
+				 */
 				switch (value) {
 				case 0:
 					tm.addData(new MyTableData("Elbow Left", viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT),
@@ -160,21 +139,6 @@ public class Kinect extends J4KSDK {
 					break;
 				}
 
-				/*
-				 * System.out.printf("Elbow Left X Position: %f\n",
-				 * viewer.skeletons[i].get3DJointX(Skeleton.ELBOW_LEFT));
-				 * System.out.printf("Elbow Left Y Position: %f\n",
-				 * viewer.skeletons[i].get3DJointY(Skeleton.ELBOW_LEFT));
-				 * System.out.printf("Wrist Left X Position: %f\n",
-				 * viewer.skeletons[i].get3DJointX(Skeleton.WRIST_LEFT));
-				 * System.out.printf("Wrist Left Y position: %f\n",
-				 * viewer.skeletons[i].get3DJointY(Skeleton.WRIST_LEFT));
-				 * System.out.printf("Shoulder Left X Position: %f\n",
-				 * viewer.skeletons[i].get3DJointX(Skeleton.SHOULDER_LEFT));
-				 * System.out.printf("Shoulder Left Y Position: %f\n",
-				 * viewer.skeletons[i].get3DJointY(Skeleton.SHOULDER_LEFT));
-				 */
-
 			}
 		}
 
@@ -183,11 +147,13 @@ public class Kinect extends J4KSDK {
 	// callback function that executes when new color frame is received
 	@Override
 	public void onColorFrameEvent(byte[] data) {
-		// checks to see if video texture exists or use_infrared is set to false
-		// if condition is satisfied, return to method body of calling method
-		// otherwise the ViewerPanel3D is updated with the new video texture.
-		if (viewer == null || viewer.videoTexture == null || use_infrared) 
-			 return;
+		/*
+		 * checks to see if video texture exists or use_infrared is set to false if
+		 * condition is satisfied, return to method body of calling method otherwise the
+		 * ViewerPanel3D is updated with the new video texture.
+		 */
+		if (viewer == null || viewer.videoTexture == null || use_infrared)
+			return;
 		viewer.videoTexture.update(getColorWidth(), getColorHeight(), data);
 	}
 
@@ -218,6 +184,7 @@ public class Kinect extends J4KSDK {
 		viewer.videoTexture.update(getInfraredWidth(), getInfraredHeight(), bgra);
 	}
 
+	// returns the table model object.
 	public TableModel getTableModel() {
 		return tm;
 	}
